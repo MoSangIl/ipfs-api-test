@@ -1,0 +1,16 @@
+{
+  "name": "webtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "regular_file_api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "browserify js/* > bundle.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ipfs-http-client": "^56.0.2",
+    "it-to-buffer": "^2.0.2"
+  }
+}

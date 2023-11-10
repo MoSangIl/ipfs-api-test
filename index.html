@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/ipfs-http-client/dist/index.min.js" crossorigin="anonymous"></script>
+    <!-- <script
+    src="https://www.jsdelivr.com/package/npm/ipfs-http-client"
+    integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB"
+    crossorigin="anonymous"
+    ></script> -->
+    <style>
+        * {
+            margin: 1rem;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1>DAG API</h1>
+    <h1>Regular File API</h1>
+    <div>
+        <h2>cat</h2>
+        <label for="cid-path">CID Path 입력: </label>
+        <input type="text" id="cid-path" name="cid-path">
+        <label for="content-type">컨텐츠 형식: </label>
+        <select name="content-type" id="content-type" style="width: 100px">
+            <option value="TEXT">text</option>
+            <option value="IMAGE">image</option>
+        </select>
+        <button id="cat">컨텐츠 가져오기</button>
+        <div id="cat-result"></div>
+        <h2>add & addAll</h2>
+        <label for="files">Choose a file:</label>
+        <input type="file" id="files" name="files" accept="*" multiple> <br>
+        <button id="add">파일 한개 등록하기</button>
+        <button id="add-all">파일 여러개 등록하기</button>
+        <div id="add-result"></div>
+        <h2>ls</h2>
+        <label for="cid-dir-path">Directory CID Path 입력: </label>
+        <input type="text" id="cid-dir-path" name="cid-dir-path">
+        <button id="ls">디렉토리 내부 파일 보기</button>
+        <div id="ls-result"></div>
+        <h2>get</h2>
+        <label for="cid-root-dir-path">최상위 Directory CID Path 입력: </label>
+        <input type="text" id="cid-root-dir-path" name="cid-root-dir-path">
+        <button id="get">최상위 디렉토리 내부 모든 디렉토리 및 파일 보기</button>
+        <div id="get-result"></div>
+    </div>
+    <h1>Mutalble File System</h1>
+    <div>
+        <label for="common-input-txt">공통 입력란(Dir or File): </label>
+        <input type="text" id="common-input-txt" name="common-input-txt">
+        <h2>chmod</h2>
+        <h2>cp</h2>
+        <label for="cp-to">dir path copy to: </label>
+        <input type="text" id="cp-to" name="cp-to">
+        <button id="cp">Copy Content</button>
+        <div id="cp-result"></div>
+        <h2>mkdir</h2>
+        <button id="mkdir">디렉토리 만들기</button>
+        <div id="mkdir-result"></div>
+        <h2>stat</h2>
+        <button id="stat">파일 stat 보기</button>
+        <div id="stat-result"></div>
+        <h2>touch</h2>
+        <h2>rm</h2>
+        <button id="rm">Remove Contents</button>
+        <div id="rm-result"></div>
+        <h2>read</h2>
+        <select name="mt-content-type" id="mt-content-type" style="width: 100px">
+            <option value="TEXT">text</option>
+            <option value="IMAGE">image</option>
+        </select>
+        <button id="read">Read Content</button>
+        <div id="read-result"></div>
+        <h2>write</h2>
+        <label for="write-to">Select file to save</label>
+        <input type="file" id="write-to" name="write-to">
+        <button id="write">Write Content</button>
+        <div id="write-result"></div>
+        <h2>mv</h2>
+        <label for="mv-to">dir path copy to: </label>
+        <input type="text" id="mv-to" name="mv-to">
+        <button id="mv">Move Content</button>
+        <div id="mv-result"></div>
+        <h2>flush</h2>
+        <h2>ls</h2>
+        <button id="mt-ls">Directory Content</button>
+        <div id="mt-ls-result"></div>
+    </div>
+</body>
+<script src="create_ipfs.js"></script>
+<script src="arrbuf_to_base64.js"></script>
+<script src="bundle.js"></script>
+</html>
